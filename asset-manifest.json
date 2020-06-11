@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Alogbrain/WebRTC.git/static/css/main.5f361e03.chunk.css",
-    "main.js": "/Alogbrain/WebRTC.git/static/js/main.9a462218.chunk.js",
-    "main.js.map": "/Alogbrain/WebRTC.git/static/js/main.9a462218.chunk.js.map",
-    "runtime-main.js": "/Alogbrain/WebRTC.git/static/js/runtime-main.c2061b28.js",
-    "runtime-main.js.map": "/Alogbrain/WebRTC.git/static/js/runtime-main.c2061b28.js.map",
-    "static/js/2.ce85243a.chunk.js": "/Alogbrain/WebRTC.git/static/js/2.ce85243a.chunk.js",
-    "static/js/2.ce85243a.chunk.js.map": "/Alogbrain/WebRTC.git/static/js/2.ce85243a.chunk.js.map",
-    "index.html": "/Alogbrain/WebRTC.git/index.html",
-    "precache-manifest.784913be06e3293f5e5b46dbb2d57cf4.js": "/Alogbrain/WebRTC.git/precache-manifest.784913be06e3293f5e5b46dbb2d57cf4.js",
-    "service-worker.js": "/Alogbrain/WebRTC.git/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/Alogbrain/WebRTC.git/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.ce85243a.chunk.js.LICENSE.txt": "/Alogbrain/WebRTC.git/static/js/2.ce85243a.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/Alogbrain/WebRTC.git/static/media/logo.5d5d9eef.svg"
+    "main.css": "/WebRTC/static/css/main.5f361e03.chunk.css",
+    "main.js": "/WebRTC/static/js/main.71f7703b.chunk.js",
+    "main.js.map": "/WebRTC/static/js/main.71f7703b.chunk.js.map",
+    "runtime-main.js": "/WebRTC/static/js/runtime-main.c76aae52.js",
+    "runtime-main.js.map": "/WebRTC/static/js/runtime-main.c76aae52.js.map",
+    "static/js/2.ce85243a.chunk.js": "/WebRTC/static/js/2.ce85243a.chunk.js",
+    "static/js/2.ce85243a.chunk.js.map": "/WebRTC/static/js/2.ce85243a.chunk.js.map",
+    "index.html": "/WebRTC/index.html",
+    "precache-manifest.c6c3b7f32e63451dcb8fa008960b0f67.js": "/WebRTC/precache-manifest.c6c3b7f32e63451dcb8fa008960b0f67.js",
+    "service-worker.js": "/WebRTC/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/WebRTC/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.ce85243a.chunk.js.LICENSE.txt": "/WebRTC/static/js/2.ce85243a.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/WebRTC/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c2061b28.js",
+    "static/js/runtime-main.c76aae52.js",
     "static/js/2.ce85243a.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.9a462218.chunk.js"
+    "static/js/main.71f7703b.chunk.js"
   ]
 }
