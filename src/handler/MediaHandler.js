@@ -4,7 +4,7 @@ import $ from 'jquery'
 export default class MediaHandler extends React.Component{
     getPermission(){
         return new Promise((res,rej) => {
-            navigator.mediaDevices.getUserMedia({video : true, audio : false})
+            navigator.mediaDevices.getUserMedia({video : true, audio : true})
             .then(stream => {
                 res(stream);
             })

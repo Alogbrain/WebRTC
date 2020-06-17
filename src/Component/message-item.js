@@ -1,16 +1,47 @@
 import React from 'react'
 // import './item.scss'
-export default class App extends React.Component{
-    render(){
-        return(
-            <li className={this.props.user  ? 'message right' : 'message left'}>
-                <div className="avatar">
-                    <img id="img" src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.0-9/54424813_2104573432990181_6339272824389107712_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=DmUnk1hdXe4AX_owOcC&_nc_ht=scontent.fsgn2-1.fna&oh=dd6339d06d003b67e9c8d85136fee1f3&oe=5F0BBB9E" alt="user" />
-                </div>
-                <div className="text_wrapper">
-                    <div className="box bg-light-info">{this.props.message}</div>
-                </div>
-            </li>
-        );
+
+import defImg from '../images/default.jpg'
+import mna from '../images/MNA.jpg'
+import duck from '../images/duck.jpg'
+import ninja from '../images/ninja.png'
+import dinasour from '../images/dinasour.jpg'
+const Objects = { "defImg": defImg, "duck": duck, "ninja": ninja, "dinasour": dinasour };
+export default class App extends React.Component {
+    render() {
+        {
+            if (this.props.userId == 0) {
+                return (
+                    <li className="message left appeared" >
+                        <div className="avatar">
+                            <img id="img" src={defImg} alt="user" />
+                        </div>
+                        <div className="text_wrapper">
+                            <br/>
+                            <div className="text">
+                                {this.props.message}
+                            </div>
+                        </div>
+                    </li>
+                )
+            } else {
+                return (
+                    <li className={this.props.user ? "message right appeared" : "message left appeared"} >
+                        <div className="avatar">
+                            <img id="img" src={Objects[this.props.img]} alt="user" />
+                        </div>
+                        <div className="text_wrapper">
+                            <div className="text">
+                                <b>{this.props.username}</b>
+                                <br></br>
+                                {this.props.message}
+                            </div>
+                            {/* <div className="box bg-light-info">{this.props.message}</div> */}
+                        </div>
+                    </li>
+                )
+            }
+
+        }
     }
 }

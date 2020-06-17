@@ -27,6 +27,12 @@
 .App-link {
   color: #61dafb;
 }
+#idVideo{
+  /* text-align: center; */
+  position: relative;
+  left: 50px;
+  top: 50px;
+}
 .video-container{
   width : 500px;
   height: 380px;

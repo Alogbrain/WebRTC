@@ -4,21 +4,21 @@ import _map from 'lodash/map';
 import io from 'socket.io-client';
 import Input from './input'
 import Messages from './message-list'
-import './component.css'
+// import './component.css'
 // import './component.js'
+
 export default class boxChat extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            messages: [],
-            user : null
+            messages: [{ id: 0, userId: 0, message: "HỆ THỐNG : CHÀO MỪNG VÀO PHÒNG CHAT" }],
+            user: null
         }
     }
     componentWillMount() {
         this.props.socket.on('id', res => {
             this.setState({ user: res })
-          });
-          console.log('Will mount'+ this.state.user)
+        });
         this.props.socket.on('newMessage', (response) => { this.newMessage(response); })
     }
     newMessage(m) {
@@ -28,6 +28,8 @@ export default class boxChat extends React.Component {
         messages.push({
             id: max + 1,
             userId: m.id,
+            img: m.img,
+            username: m.username,
             message: m.data
         })
 
@@ -51,12 +53,15 @@ export default class boxChat extends React.Component {
     render() {
         return (
             this.state.user
-                ?<div className="app__content">
-                    <div className="chat_window">
-                        <Messages user={this.state.user} messages={this.state.messages} typing={this.state.typing} />
-                        <Input sendMessage={this.sendnewMessage.bind(this)} />
-                    </div>
-                </div> :null
+                // ?<div className="app__content">
+
+                // ? <div className="content">
+                //     <div className="chat_window">
+                ? <div className="content">
+                    <Messages user={this.state.user} messages={this.state.messages} typing={this.state.typing} />
+                    <Input sendMessage={this.sendnewMessage.bind(this)} />
+                </div > : null
+            // </div> :null
         );
     }
 }
