@@ -1,23 +1,28 @@
 {
   "files": {
-    "main.css": "/WebRTC/static/css/main.456453ce.chunk.css",
-    "main.js": "/WebRTC/static/js/main.37f9d7b5.chunk.js",
-    "main.js.map": "/WebRTC/static/js/main.37f9d7b5.chunk.js.map",
+    "main.css": "/WebRTC/static/css/main.e97a865a.chunk.css",
+    "main.js": "/WebRTC/static/js/main.8e5928a8.chunk.js",
+    "main.js.map": "/WebRTC/static/js/main.8e5928a8.chunk.js.map",
     "runtime-main.js": "/WebRTC/static/js/runtime-main.c76aae52.js",
     "runtime-main.js.map": "/WebRTC/static/js/runtime-main.c76aae52.js.map",
-    "static/js/2.c4d702b0.chunk.js": "/WebRTC/static/js/2.c4d702b0.chunk.js",
-    "static/js/2.c4d702b0.chunk.js.map": "/WebRTC/static/js/2.c4d702b0.chunk.js.map",
+    "static/js/2.60c51571.chunk.js": "/WebRTC/static/js/2.60c51571.chunk.js",
+    "static/js/2.60c51571.chunk.js.map": "/WebRTC/static/js/2.60c51571.chunk.js.map",
     "index.html": "/WebRTC/index.html",
-    "precache-manifest.305cc41b00fbdd46ce6186c1df14a71c.js": "/WebRTC/precache-manifest.305cc41b00fbdd46ce6186c1df14a71c.js",
+    "precache-manifest.34564e49ddc5efc84dc7c668f179661b.js": "/WebRTC/precache-manifest.34564e49ddc5efc84dc7c668f179661b.js",
     "service-worker.js": "/WebRTC/service-worker.js",
-    "static/css/main.456453ce.chunk.css.map": "/WebRTC/static/css/main.456453ce.chunk.css.map",
-    "static/js/2.c4d702b0.chunk.js.LICENSE.txt": "/WebRTC/static/js/2.c4d702b0.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/WebRTC/static/media/logo.5d5d9eef.svg"
+    "static/css/main.e97a865a.chunk.css.map": "/WebRTC/static/css/main.e97a865a.chunk.css.map",
+    "static/js/2.60c51571.chunk.js.LICENSE.txt": "/WebRTC/static/js/2.60c51571.chunk.js.LICENSE.txt",
+    "static/media/MNA.jpg": "/WebRTC/static/media/MNA.8432b20d.jpg",
+    "static/media/default.jpg": "/WebRTC/static/media/default.af3d5a2a.jpg",
+    "static/media/dinasour.jpg": "/WebRTC/static/media/dinasour.eb3bfd35.jpg",
+    "static/media/duck.jpg": "/WebRTC/static/media/duck.45f09761.jpg",
+    "static/media/man.png": "/WebRTC/static/media/man.204591cd.png",
+    "static/media/ninja.png": "/WebRTC/static/media/ninja.6c9609f2.png"
   },
   "entrypoints": [
     "static/js/runtime-main.c76aae52.js",
-    "static/js/2.c4d702b0.chunk.js",
-    "static/css/main.456453ce.chunk.css",
-    "static/js/main.37f9d7b5.chunk.js"
+    "static/js/2.60c51571.chunk.js",
+    "static/css/main.e97a865a.chunk.css",
+    "static/js/main.8e5928a8.chunk.js"
   ]
 }
