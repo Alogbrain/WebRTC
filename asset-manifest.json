@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/WebRTC/static/css/main.e97a865a.chunk.css",
-    "main.js": "/WebRTC/static/js/main.8e5928a8.chunk.js",
-    "main.js.map": "/WebRTC/static/js/main.8e5928a8.chunk.js.map",
+    "main.js": "/WebRTC/static/js/main.62208acc.chunk.js",
+    "main.js.map": "/WebRTC/static/js/main.62208acc.chunk.js.map",
     "runtime-main.js": "/WebRTC/static/js/runtime-main.c76aae52.js",
     "runtime-main.js.map": "/WebRTC/static/js/runtime-main.c76aae52.js.map",
     "static/js/2.60c51571.chunk.js": "/WebRTC/static/js/2.60c51571.chunk.js",
     "static/js/2.60c51571.chunk.js.map": "/WebRTC/static/js/2.60c51571.chunk.js.map",
     "index.html": "/WebRTC/index.html",
-    "precache-manifest.34564e49ddc5efc84dc7c668f179661b.js": "/WebRTC/precache-manifest.34564e49ddc5efc84dc7c668f179661b.js",
+    "precache-manifest.315da26be5e1ffd2368448e523b6b2c0.js": "/WebRTC/precache-manifest.315da26be5e1ffd2368448e523b6b2c0.js",
     "service-worker.js": "/WebRTC/service-worker.js",
     "static/css/main.e97a865a.chunk.css.map": "/WebRTC/static/css/main.e97a865a.chunk.css.map",
     "static/js/2.60c51571.chunk.js.LICENSE.txt": "/WebRTC/static/js/2.60c51571.chunk.js.LICENSE.txt",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.c76aae52.js",
     "static/js/2.60c51571.chunk.js",
     "static/css/main.e97a865a.chunk.css",
-    "static/js/main.8e5928a8.chunk.js"
+    "static/js/main.62208acc.chunk.js"
   ]
 }

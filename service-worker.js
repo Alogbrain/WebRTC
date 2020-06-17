@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/WebRTC/precache-manifest.34564e49ddc5efc84dc7c668f179661b.js"
+  "/WebRTC/precache-manifest.315da26be5e1ffd2368448e523b6b2c0.js"
 );
 
 self.addEventListener('message', (event) => {
