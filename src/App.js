@@ -65,9 +65,10 @@ class App extends React.Component {
       })
     })
     this.socket.on('hey', data => {
-      if (data.userToCall === this.peer.id)
+      if (data.userToCall === this.peer.id){
         alert(data.username + " is calling you")
         this.setState({ receivingCall: true, caller: data.from, callerImg: data.usernameImg })
+      }
     })
     this.socket.on('callAccepted', data => {
       if (data.caller === this.peer.id) {
