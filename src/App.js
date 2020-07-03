@@ -9,7 +9,16 @@ import MediaHandler from './handler/MediaHandler.js'
 import io from 'socket.io-client'
 import BoxChat from './Component/boxChat'
 import Accept from './Component/accept'
+import ChatCircle from './Component/chatCircle'
 
+import _map from 'lodash/map';
+
+import defImg from './images/default.jpg'
+import mna from './images/MNA.jpg'
+import duck from './images/duck.jpg'
+import ninja from './images/ninja.png'
+import dinasour from './images/dinasour.jpg'
+const Objects = { "defImg": defImg, "duck": duck, "ninja": ninja, "dinasour": dinasour };
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +30,8 @@ class App extends React.Component {
       receivingCall: false,
       caller: null,
       callerImg: null,
+      minimize : false,
+      messages: [{ id: 0, userId: 0, message: "HỆ THỐNG : CHÀO MỪNG VÀO PHÒNG CHAT" }],
     }
 
     // this.mediaHandler = new MediaHandler();
@@ -65,8 +76,8 @@ class App extends React.Component {
       })
     })
     this.socket.on('hey', data => {
-      if (data.userToCall === this.peer.id){
-        alert(data.username + " is calling you")
+      if (data.userToCall === this.peer.id) {
+        // alert(data.username + " is calling you")
         this.setState({ receivingCall: true, caller: data.from, callerImg: data.usernameImg })
       }
     })
@@ -92,16 +103,40 @@ class App extends React.Component {
       }
 
     })
-    this.socket.on('DANG_KY_THAT_BAI', () => alert('username da ton tai!'));
+    // this.socket.on('DANG_KY_THAT_BAI', () => alert('username da ton tai!'));
     this.socket.on('AI_DO_NGAT_KET_NOI', peerId => {
       // $('#' + peerId + '').remove();
       const index = this.state.arrPeer.findIndex(user => user.peerId === peerId);
       this.state.arrPeer.splice(index, 1);
       this.setState({ arrPeer: this.state.arrPeer })
     });
+    this.props.socket.on('newMessage', (response) => { this.newMessage(response); })
     this.startPeer();
 
   }
+  newMessage(m) {
+    const messages = this.state.messages;
+    let ids = _map(messages, 'id');
+    let max = Math.max(...ids);
+    messages.push({
+        id: max + 1,
+        userId: m.id,
+        img: m.img,
+        username: m.username,
+        message: m.data
+    })
+
+    let objMessage = $('.messages');
+    if (objMessage[0].scrollHeight - objMessage[0].scrollTop === objMessage[0].clientHeight) {
+        this.setState({ messages });
+        objMessage.animate({ scrollTop: objMessage.prop('scrollHeight') }, 300);
+    } else {
+        this.setState({ messages });
+        if (m.id === this.state.user) {
+            objMessage.animate({ scrollTop: objMessage.prop('scrollHeight') }, 300);
+        }
+    }
+}
   startPeer() {
     // const peer = new Peer();
     // peer.on('open', id => {
@@ -174,6 +209,14 @@ class App extends React.Component {
   reject() {
     this.setState({ receivingCall: false });
   }
+  minimize(){
+    if(this.state.minimize === false){
+      this.setState({minimize:true})  
+    }else{
+      this.setState({minimize:false})  
+    }
+    
+  }
   render() {
     var incomingCall;
     if (this.state.receivingCall === true) {
@@ -184,33 +227,57 @@ class App extends React.Component {
         }
       })
       incomingCall = (
-        <Accept ten={_ten} acceptCall={this.acceptCall.bind(this)} callerImg={this.state.callerImg} reject={this.reject.bind(this)} />
+        <div id="Accept" className=" fadeInDown" >
+          <Accept ten={_ten} acceptCall={this.acceptCall.bind(this)} callerImg={this.state.callerImg} reject={this.reject.bind(this)} />
+        </div>
       );
     }
-    return (
-      <div className="App">
-        <div id="idVideo">
+    var minimizeChat;
+    if(this.state.minimize === false){
+      console.log("message "+this.state.messages)
+      minimizeChat =(
+        <div>
           <div className="chat_window">
+            <div class="top_menu">
+              <div class="buttons">
+                <div class="button close" onClick={()=> this.minimize()}></div>
+                <div class="button minimize" onClick={()=> this.minimize()}></div>
+                <div class="button maximize" onClick={()=> this.minimize()}></div>
+              </div>
+              <div class="title">Chat</div>
+            </div>
             <div className="menu">
               <ul id="ulUser">
-                <p id="usersUl">Online User:</p>
+                <div id="usersUl">Online User:</div>
                 {
                   this.state.arrPeer.map(i => {
-                    // if (i.peerId !== this.peer.id)
-                      return <li className="user" id={i.peerId} key={i.peerId} onClick={() => this.ClickLi(i.peerId)}><span>{i.ten}</span></li>
-                    // else
-                    //   return null
+                    if (i.peerId !== this.peer.id)
+                    return <li className="user" id={i.peerId} key={i.peerId} onClick={() => this.ClickLi(i.peerId)}>
+                      <span><img id="imgUser" src={Objects[i.usernameImg]}></img></span><span>{i.ten}</span></li>
+                    else
+                      return null
                   })
                 }
               </ul>
             </div>
-            <BoxChat socket={this.socket} />
+            <BoxChat socket={this.socket} messages={this.state.messages} user={this.peer.id}/>
           </div>
+        </div>
+      )
+    }else{
+      minimizeChat =(
+        <ChatCircle minimize={this.minimize.bind(this)}/>
+      )
+    }
+    return (
+      <div className="App">
+        <div id="idVideo">
           <div className="video-container">
             <h3 id="my-peer">ID : {this.peer.id}</h3>
             <video className="my-video" ref={(ref) => { this.myVideo = ref; }}></video>
             <video className="user-video" ref={(ref) => { this.userVideo = ref; }}></video>
           </div>
+          {minimizeChat}
           {/* <div>
             <input type='text' id="remoteId" placeholder="Remote ID"></input>
             <button id="btnCall" onClick={this.Call}>Call</button>

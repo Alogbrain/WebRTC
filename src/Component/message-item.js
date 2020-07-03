@@ -32,8 +32,7 @@ export default class App extends React.Component {
                         </div>
                         <div className="text_wrapper">
                             <div className="text">
-                                <b>{this.props.username}</b>
-                                <br></br>
+                                <div className="textB">{this.props.username}</div>
                                 {this.props.message}
                             </div>
                             {/* <div className="box bg-light-info">{this.props.message}</div> */}

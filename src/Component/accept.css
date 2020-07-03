@@ -5,7 +5,11 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 /* reset */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,
+big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,
+ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,
+canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,
+time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
 ol,ul{list-style:none;margin:0px;padding:0px;}
 blockquote,q{quotes:none;}
@@ -42,10 +46,14 @@ body{
 	color: #E06969;
 }
 .login-form {
-	background: #fff;
+
+	/* background: url(../images/bg2.png); */
+	background-color: whitesmoke;
+	background-origin: border-box;
+	border:1.5px solid #9fb1a5;
 	min-height: 415px;
-	width: 20%;
-	margin: 4% auto;
+	width: 30%;
+	margin: 10px auto;
 	border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -104,7 +112,8 @@ ul.bottom-buttons li a.top-close:hover {
 }
 .social-icons h3 {
 	text-align: center;
-	color: #CFCFCF;
+	/* color: #CFCFCF; */
+	color: grey;
 	margin-bottom: 1.5em;
 	font-size: 20px;
 	font-weight: 200;
@@ -121,7 +130,7 @@ ul.bottom-buttons li a {
 ul.bottom-buttons li a.top-close {
 	background: #e06969;
 	color: #fff;
-	padding: 14px 26px;
+	padding: 14px 25px;
 	border-bottom: 3px solid#bd5959;
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
@@ -170,6 +179,9 @@ li.top-close p {
 .copy-right p a:hover {
 	color:#fff;
 }
+#imgAccept{
+	border-radius: 50%;
+}
 /*-----start-responsive-design------*/
 @media (max-width:1440px){
 	.head {
@@ -177,8 +189,9 @@ li.top-close p {
 		right: 73px;
 	}
 	.login-form {
-		width: 22%;
+		width: 60%;
 	}
+	
 }
 @media (max-width:1366px){
 	.login-form {
@@ -187,6 +200,10 @@ li.top-close p {
 	.head {
 		top: 52px;
 		right: 65px;
+	}
+	ul.bottom-buttons li {
+		display: inline-block;
+		margin: 0 15px;
 	}
 }
 @media (max-width:1280px){

@@ -11,7 +11,7 @@ export default class boxChat extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            messages: [{ id: 0, userId: 0, message: "HỆ THỐNG : CHÀO MỪNG VÀO PHÒNG CHAT" }],
+            // messages: [{ id: 0, userId: 0, message: "HỆ THỐNG : CHÀO MỪNG VÀO PHÒNG CHAT" }],
             user: null
         }
     }
@@ -19,31 +19,31 @@ export default class boxChat extends React.Component {
         this.props.socket.on('id', res => {
             this.setState({ user: res })
         });
-        this.props.socket.on('newMessage', (response) => { this.newMessage(response); })
+        // this.props.socket.on('newMessage', (response) => { this.newMessage(response); })
     }
-    newMessage(m) {
-        const messages = this.state.messages;
-        let ids = _map(messages, 'id');
-        let max = Math.max(...ids);
-        messages.push({
-            id: max + 1,
-            userId: m.id,
-            img: m.img,
-            username: m.username,
-            message: m.data
-        })
+    // newMessage(m) {
+    //     const messages = this.state.messages;
+    //     let ids = _map(messages, 'id');
+    //     let max = Math.max(...ids);
+    //     messages.push({
+    //         id: max + 1,
+    //         userId: m.id,
+    //         img: m.img,
+    //         username: m.username,
+    //         message: m.data
+    //     })
 
-        let objMessage = $('.messages');
-        if (objMessage[0].scrollHeight - objMessage[0].scrollTop === objMessage[0].clientHeight) {
-            this.setState({ messages });
-            objMessage.animate({ scrollTop: objMessage.prop('scrollHeight') }, 300);
-        } else {
-            this.setState({ messages });
-            if (m.id === this.state.user) {
-                objMessage.animate({ scrollTop: objMessage.prop('scrollHeight') }, 300);
-            }
-        }
-    }
+    //     let objMessage = $('.messages');
+    //     if (objMessage[0].scrollHeight - objMessage[0].scrollTop === objMessage[0].clientHeight) {
+    //         this.setState({ messages });
+    //         objMessage.animate({ scrollTop: objMessage.prop('scrollHeight') }, 300);
+    //     } else {
+    //         this.setState({ messages });
+    //         if (m.id === this.state.user) {
+    //             objMessage.animate({ scrollTop: objMessage.prop('scrollHeight') }, 300);
+    //         }
+    //     }
+    // }
     sendnewMessage(m) {
         if (m.value) {
             this.props.socket.emit("newMessage", m.value);
@@ -52,16 +52,11 @@ export default class boxChat extends React.Component {
     }
     render() {
         return (
-            this.state.user
-                // ?<div className="app__content">
-
-                // ? <div className="content">
-                //     <div className="chat_window">
-                ? <div className="content">
-                    <Messages user={this.state.user} messages={this.state.messages} typing={this.state.typing} />
+            this.props.user
+                    ?<div className="content">
+                    <Messages user={this.props.user} messages={this.props.messages} typing={this.state.typing} />
                     <Input sendMessage={this.sendnewMessage.bind(this)} />
-                </div > : null
-            // </div> :null
+                </div > :null
         );
     }
 }

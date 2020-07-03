@@ -20,7 +20,7 @@ export default class Home extends React.Component {
             selectedOption: null,
             login: false,
             idPeer: null,
-            usernameImg: "default",
+            usernameImg: "defImg",
             img: defImg,
             errors: {
                 username: ''
@@ -37,6 +37,13 @@ export default class Home extends React.Component {
     componentWillMount() {
         this.socket = io('https://webrtc9598.herokuapp.com/');
         // this.socket = io('http://localhost:3000');
+        this.socket.on('DANG_KY_THAT_BAI', () => {
+            this.setState({ login: false });
+            alert('username da ton tai!')
+        });
+        this.socket.on('DANG_KY_THANH_CONG', () => {
+            this.setState({ login: true });
+        });
     }
     startPeer() {
         const peer = new Peer();
@@ -54,7 +61,6 @@ export default class Home extends React.Component {
             this.setState({ errors });
         } else {
             if (this.state.errors.username.length === 0) {
-                this.setState({ login: true });
                 const username = $('#username').val();
                 this.socket.emit('NGUOI_DUNG_DANG_KY', { ten: username, peerId: this.peer.id, usernameImg: this.state.usernameImg });
             }
@@ -84,7 +90,7 @@ export default class Home extends React.Component {
         let errors = this.state.errors;
         switch (name) {
             case 'username':
-                errors.username = value.length > 10 ? 'Tên không được quá 10 kí tự' : '';
+                errors.username = value.length > 8 ? 'Tên không được quá 8 kí tự' : '';
                 break;
             default:
                 break;
@@ -93,10 +99,10 @@ export default class Home extends React.Component {
     }
     render() {
         var options = [
-            { value: defImg, label: <div><img src={defImg} height="50px" width="50px" />AnNguyen</div> },
-            { value: duck, label: <div><img src={duck} height="50px" width="50px" />Duck</div> },
-            { value: ninja, label: <div><img src={ninja} height="50px" width="50px" />Ninja</div> },
-            { value: dinasour, label: <div><img src={dinasour} height="50px" width="50px" />Dinasour</div> }
+            { value: defImg, label: <div id="test"><img src={defImg} id="imgSelect" /><span id="textSelect">Default</span></div> },
+            { value: duck, label: <div><img src={duck} id="imgSelect" /><span id="textSelect">Duck</span></div> },
+            { value: ninja, label: <div><img src={ninja} id="imgSelect" /><span id="textSelect">Ninja</span></div> },
+            { value: dinasour, label: <div><img src={dinasour} id="imgSelect" /><span id="textSelect">Dinasour</span></div> }
         ];
         {
             if (this.state.login === false)
@@ -110,7 +116,7 @@ export default class Home extends React.Component {
                                 {/* <label htmlFor="fullName">Full Name</label> */}
                                 <input type="text1" name="username" id="username" onChange={this.checkValid} className="fadeIn second" placeholder="username" noValidate />
                                 {this.state.errors.username.length >= 0 && <div><span className="error">{this.state.errors.username}</span></div>}
-                                <Select value={this.state.selectedOption} options={options} onChange={this.handleChange}></Select>
+                                <Select id ="Select" value={this.state.selectedOption} options={options} onChange={this.handleChange}></Select>
                                 <input type="button" className="fadeIn fourth" value="Log In" onClick={() => this.login()} />
                             </form>
                             <div id="formFooter">
