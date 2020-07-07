@@ -8,8 +8,18 @@ html {
   body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
+    background: white;
   }
-  
+  .logo{
+    background-image: url("../images/cropped-logo_10_nam-21.png");
+    height: 80px;
+    width: 193px;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
   a {
     color: #92badd;
     display:inline-block;
@@ -268,7 +278,7 @@ html {
     background: #fff;
     padding: 30px;
     width: 90%;
-    max-width: 400px;
+    max-width: 370px;
     position: relative;
     padding: 0px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);

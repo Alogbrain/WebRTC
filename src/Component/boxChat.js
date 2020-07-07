@@ -52,11 +52,13 @@ export default class boxChat extends React.Component {
     }
     render() {
         return (
-            this.props.user
-                    ?<div className="content">
-                    <Messages user={this.props.user} messages={this.props.messages} typing={this.state.typing} />
-                    <Input sendMessage={this.sendnewMessage.bind(this)} />
-                </div > :null
+            // this.props.user
+            //         ?<div className="content">
+            <div className="content">
+                <Messages user={this.props.user} messages={this.props.messages} typing={this.state.typing} />
+                <Input sendMessage={this.sendnewMessage.bind(this)} />
+            </div>
+            // </div > :null
         );
     }
 }

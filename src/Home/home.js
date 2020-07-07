@@ -35,8 +35,8 @@ export default class Home extends React.Component {
         this.peer = this.startPeer();
     }
     componentWillMount() {
-        this.socket = io('https://webrtc9598.herokuapp.com/');
-        // this.socket = io('http://localhost:3000');
+        // this.socket = io('https://webrtc9598.herokuapp.com/');
+        this.socket = io('http://localhost:3000');
         this.socket.on('DANG_KY_THAT_BAI', () => {
             this.setState({ login: false });
             alert('username da ton tai!')
@@ -64,9 +64,9 @@ export default class Home extends React.Component {
                 const username = $('#username').val();
                 this.socket.emit('NGUOI_DUNG_DANG_KY', { ten: username, peerId: this.peer.id, usernameImg: this.state.usernameImg });
             }
-                errors.username = ''
-                $('#username').val('')
-                this.setState({ errors });
+            errors.username = ''
+            $('#username').val('')
+            this.setState({ errors });
         }
 
 
@@ -107,26 +107,29 @@ export default class Home extends React.Component {
         {
             if (this.state.login === false)
                 return (
-                    <div className="wrapper fadeInDown" >
-                        <div id="formContent">
-                            <div className="fadeIn first">
-                                <img src={this.state.img} className="rounded-circle user_img_msg" id="icon" alt="User Icon" />
-                            </div>
-                            <form noValidate>
-                                {/* <label htmlFor="fullName">Full Name</label> */}
-                                <input type="text1" name="username" id="username" onChange={this.checkValid} className="fadeIn second" placeholder="username" noValidate />
-                                {this.state.errors.username.length >= 0 && <div><span className="error">{this.state.errors.username}</span></div>}
-                                <Select id ="Select" value={this.state.selectedOption} options={options} onChange={this.handleChange}></Select>
-                                <input type="button" className="fadeIn fourth" value="Log In" onClick={() => this.login()} />
-                            </form>
-                            <div id="formFooter">
-                                <a className="underlineHover" href="#">Forgot Password?</a>
+                    <div >
+                        <div className="logo" ></div>
+                        <div className="wrapper fadeInDown" >
+                            <div id="formContent">
+                                <div className="fadeIn first">
+                                    <img src={this.state.img} className="rounded-circle user_img_msg" id="icon" alt="User Icon" />
+                                </div>
+                                <form noValidate>
+                                    {/* <label htmlFor="fullName">Full Name</label> */}
+                                    <input type="text1" name="username" id="username" onChange={this.checkValid} className="fadeIn second" placeholder="username" noValidate />
+                                    {this.state.errors.username.length >= 0 && <div><span className="error">{this.state.errors.username}</span></div>}
+                                    <Select id="Select" value={this.state.selectedOption} options={options} onChange={this.handleChange}></Select>
+                                    <input type="button" className="fadeIn fourth" value="Log In" onClick={() => this.login()} />
+                                </form>
+                                <div id="formFooter">
+                                    <a className="underlineHover" href="#">Forgot Password?</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 );
             else {
-                return <App socket={this.socket} peer={this.peer} mediaHandler={this.mediaHandler} />
+                return <div><div className="logo" /><App socket={this.socket} peer={this.peer} mediaHandler={this.mediaHandler} /></div>
             }
         }
     }

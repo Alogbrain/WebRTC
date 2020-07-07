@@ -103,6 +103,12 @@ class App extends React.Component {
       }
 
     })
+    this.socket.on('callRejected', data => {
+      if (data.to === this.peer.id) {
+        alert('Cuộc gọi bị từ chối')
+      }
+    }
+    )
     // this.socket.on('DANG_KY_THAT_BAI', () => alert('username da ton tai!'));
     this.socket.on('AI_DO_NGAT_KET_NOI', peerId => {
       // $('#' + peerId + '').remove();
@@ -173,27 +179,6 @@ class App extends React.Component {
     })
     // return peer;
   }
-  Call() {
-    const id = $('#remoteId').val();
-    this.mediaHandler.getPermission()
-      .then(stream => {
-        try {
-          this.myVideo.srcObject = stream;
-        } catch (error) {
-          this.myVideo.src = URL.createObjectURL(stream);
-        }
-        this.myVideo.play();
-        const call = this.peer.call(id, stream);
-        call.on('stream', remoteStream => {
-          try {
-            this.userVideo.srcObject = remoteStream;
-          } catch (error) {
-            this.userVideo.src = URL.createObjectURL(remoteStream);
-          }
-          this.userVideo.play();
-        })
-      });
-  }
   SignUp() {
     const username = $('#txtUsername').val();
     this.socket.emit('NGUOI_DUNG_DANG_KY', { ten: username, peerId: this.peer.id });
@@ -207,6 +192,7 @@ class App extends React.Component {
     this.setState({ receivingCall: false });
   }
   reject() {
+    this.socket.emit('rejectCall', { caller: this.state.caller, to: this.peer.id });
     this.setState({ receivingCall: false });
   }
   minimize(){
@@ -234,7 +220,6 @@ class App extends React.Component {
     }
     var minimizeChat;
     if(this.state.minimize === false){
-      console.log("message "+this.state.messages)
       minimizeChat =(
         <div>
           <div className="chat_window">
@@ -278,14 +263,6 @@ class App extends React.Component {
             <video className="user-video" ref={(ref) => { this.userVideo = ref; }}></video>
           </div>
           {minimizeChat}
-          {/* <div>
-            <input type='text' id="remoteId" placeholder="Remote ID"></input>
-            <button id="btnCall" onClick={this.Call}>Call</button>
-          </div>
-          <div>
-            <input type='text' id="txtUsername" placeholder="Enter your username"></input>
-            <button id="btnSignUp" onClick={this.SignUp}>SignUp</button>
-          </div> */}
         </div>
         {incomingCall}
       </div >

@@ -1,7 +1,6 @@
 .App {
   /* text-align: center; */
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -41,10 +40,11 @@
   align-items: center;
   flex-direction: column; 
   justify-content: center;
+  z-index: 3;
 }
 .video-container{
-  width : 500px;
-  height: 380px;
+  width : 550px;
+  height: 430px;
   margin: 0dp auto;
   border: 2px solid #645cff;
   position: relative;
@@ -71,6 +71,85 @@
   z-index: 1;
 }
 
+/* @media (max-width:1366px){
+	.video-container {
+		width : 500px;
+    height: 400px;
+	}
+	
+}
+@media (max-width:1280px){
+	.video-container {
+		width : 550px;
+    height: 430px;
+	}
+}
+@media (max-width:1040px){
+  .video-container {
+		width : 550px;
+    height: 430px;
+	}
+} */
+@media (max-width:1024px){
+	.video-container {
+		width : 450px;
+    height: 330px;
+  }
+  .chat_window{
+    max-width: 600px;
+    height: 450px;
+    right: 11%;
+    top: 55%;
+  }
+}
+/* @media (max-width:800px){
+	.video-container {
+		width : 550px;
+    height: 430px;
+	}
+}
+@media (max-width:768px){
+	.video-container {
+		width : 550px;
+    height: 430px;
+	}
+} */
+@media (max-width:640px){                                  
+	.video-container {
+		width : 450px;
+    height: 330px;
+  }
+  /* .chat_window{
+    max-width: 550px;
+    height: 350px;
+  } */
+}
+@media (max-width:480px){                                  
+	.video-container {
+		width : 400px;
+    height: 320px;
+	}
+} 
+
+
+/* @media (max-width:414px){
+	.video-container {
+		width : 550px;
+    height: 430px;
+	}
+}
+@media (max-width:375px){
+	.video-container {
+		width : 550px;
+    height: 430px;
+	}
+}
+@media (max-width:320px){   
+	.video-container {
+		width : 550px;
+    height: 430px;
+	}
+} */
 
 @keyframes App-logo-spin {
   from {

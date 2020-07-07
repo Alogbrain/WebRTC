@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import Accept from './Component/accept'
 import Home from './Home/home'
 import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
