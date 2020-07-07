@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bffdd7b38d3068e47646a7726c3a228e",
+    "revision": "f993624b89c0e90ab85bf87431644c4d",
     "url": "/WebRTC/index.html"
   },
   {
-    "revision": "b980351d75d4ee97278a",
+    "revision": "6837166c6dba29df547f",
     "url": "/WebRTC/static/css/main.36201bcc.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/WebRTC/static/js/2.ea8cc8f6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b980351d75d4ee97278a",
-    "url": "/WebRTC/static/js/main.e1e732bc.chunk.js"
+    "revision": "6837166c6dba29df547f",
+    "url": "/WebRTC/static/js/main.d619839a.chunk.js"
   },
   {
     "revision": "134f20939427eb197a5a",
