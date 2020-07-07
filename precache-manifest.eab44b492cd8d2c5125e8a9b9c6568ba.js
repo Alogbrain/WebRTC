@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9204f3339de92de0b5307b5ddd97b1ed",
+    "revision": "bffdd7b38d3068e47646a7726c3a228e",
     "url": "/WebRTC/index.html"
   },
   {
-    "revision": "2c02cf8e2482543227d3",
-    "url": "/WebRTC/static/css/main.3f1d49ff.chunk.css"
+    "revision": "b980351d75d4ee97278a",
+    "url": "/WebRTC/static/css/main.36201bcc.chunk.css"
   },
   {
-    "revision": "fd9866ba86674525fadc",
-    "url": "/WebRTC/static/js/2.ee2cc6a8.chunk.js"
+    "revision": "b46df62778e9fdf75ace",
+    "url": "/WebRTC/static/js/2.ea8cc8f6.chunk.js"
   },
   {
     "revision": "7b7e02d4bced4eea42867b10a0a4d7e3",
-    "url": "/WebRTC/static/js/2.ee2cc6a8.chunk.js.LICENSE.txt"
+    "url": "/WebRTC/static/js/2.ea8cc8f6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2c02cf8e2482543227d3",
-    "url": "/WebRTC/static/js/main.3bd54e9c.chunk.js"
+    "revision": "b980351d75d4ee97278a",
+    "url": "/WebRTC/static/js/main.e1e732bc.chunk.js"
   },
   {
     "revision": "134f20939427eb197a5a",
@@ -26,6 +26,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "8432b20d4595d1f9b6af63082fd7ed54",
     "url": "/WebRTC/static/media/MNA.8432b20d.jpg"
+  },
+  {
+    "revision": "742d8c61a8158982a1eb220749381c4c",
+    "url": "/WebRTC/static/media/cropped-logo_10_nam-21.742d8c61.png"
   },
   {
     "revision": "af3d5a2ad66cb68d89536fc88e7ad405",
