@@ -1,4 +1,5 @@
 import React from 'react'
+
 import './home.css'
 import App from '../App'
 import $ from 'jquery'
@@ -12,6 +13,8 @@ import mna from '../images/MNA.jpg'
 import duck from '../images/duck.jpg'
 import ninja from '../images/ninja.png'
 import dinasour from '../images/dinasour.jpg'
+
+import uuid from 'react-uuid'
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -35,8 +38,8 @@ export default class Home extends React.Component {
         this.peer = this.startPeer();
     }
     componentWillMount() {
-        this.socket = io('https://webrtc9598.herokuapp.com/');
-        // this.socket = io('http://localhost:3000');
+        // this.socket = io('https://webrtc9598.herokuapp.com/');
+        this.socket = io('http://localhost:3000');
         this.socket.on('DANG_KY_THAT_BAI', () => {
             this.setState({ login: false });
             alert('username da ton tai!')
@@ -46,11 +49,20 @@ export default class Home extends React.Component {
         });
     }
     startPeer() {
-        const peer = new Peer();
-        peer.on('open', id => {
-            this.setState({ idPeer: id });
-            console.log(id)
-        })
+        // const peer = new Peer();
+        let id = uuid()
+        console.log(id)
+        const peer = new Peer(id,{
+            host: '9000-d19a20ed-504f-4d6c-acd5-d6039beb12ef.ws-us02.gitpod.io',
+            port: 443,
+            secure:true,
+            key:'peerjs'
+          } )
+          this.setState({ idPeer: id });
+        // peer.on('open', id => {
+        //     this.setState({ idPeer: id });
+        //     console.log(id)
+        // })
         return peer;
     }
     login() {
