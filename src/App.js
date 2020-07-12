@@ -104,7 +104,7 @@ class App extends React.Component {
 
     })
     this.socket.on('callRejected', data => {
-      if (data.to === this.peer.id) {
+      if (data.caller === this.peer.id) {
         alert('Cuộc gọi bị từ chối')
       }
     }
