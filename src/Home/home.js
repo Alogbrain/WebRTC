@@ -38,8 +38,8 @@ export default class Home extends React.Component {
         this.peer = this.startPeer();
     }
     componentWillMount() {
-        // this.socket = io('https://webrtc9598.herokuapp.com/');
-        this.socket = io('http://localhost:3000');
+        this.socket = io('https://webrtc9598.herokuapp.com/');
+        // this.socket = io('http://localhost:3000');
         this.socket.on('DANG_KY_THAT_BAI', () => {
             this.setState({ login: false });
             alert('username da ton tai!')
